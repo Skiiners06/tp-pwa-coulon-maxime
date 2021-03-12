@@ -8,10 +8,7 @@ const mapReducer = (state, action) => {
         case 'addMarker':
             console.log(action.marker)
             return {...state, markers: [...state.markers, action.marker]}
-        case 'displayMarkers':
-            console.log(action.marker)
-            return {...state, markers: [...state.markers, action.marker]}
-        
+            
         default: return {...state}
     }
 }

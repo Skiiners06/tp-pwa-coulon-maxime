@@ -25,7 +25,7 @@ const Geolocation = () => {
 
     return (
         <>
-            <label for={'withGeoloc'}>Géoloc</label>
+            <label htmlFor={'withGeoloc'}>Géoloc</label>
             <input style={{position:'absolute', zIndex:'999'}} type={'checkbox'} checked={withGeoloc} onChange={()=> setWithGeoloc(prev => !prev)} id={'withGeoloc'}/>
         </>
     )

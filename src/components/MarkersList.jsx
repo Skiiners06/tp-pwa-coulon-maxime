@@ -4,12 +4,15 @@ import { MapContext, mapReducer } from "./MapContext";
 const MarkerList = () => {
   const { state, dispatch } = useContext(MapContext);
 
+  console.log('test')
   console.log(state);
-  //window.onload = useEffect(() => {}, [state]);
+  console.log(dispatch);
 
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Liste des markers</h1>
+
+        <div onLoad={() => {dispatch({type:'addMarker'})}}></div>
     </div>
   );
 };

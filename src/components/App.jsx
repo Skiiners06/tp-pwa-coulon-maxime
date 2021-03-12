@@ -11,9 +11,12 @@ import {
 } from "react-router-dom";
 import MarkerList from "./MarkersList";
 import { Marker } from "leaflet";
+import User from "./User";
 
 const App = () => {
-  const state = useContext(MapContext);
+  const [state, dispatch] = useReducer(mapReducer, {});
+  const context = { state, dispatch };
+
   return (
     <div>
       <Router>
@@ -26,11 +29,17 @@ const App = () => {
               <li>
                 <Link to="/markers">Liste markers</Link>
               </li>
+              <li>
+                <Link to="/user">Utilisateurs</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
-            <MapContext.Provider value={state}>
-              
+            <Route path="/user">
+              <User />
+            </Route>
+
+            <MapContext.Provider value={context}>
               <Route path="/markers">
                 <MarkerList />
               </Route>
@@ -40,8 +49,7 @@ const App = () => {
                   <MapLeaflet />
                 </div>
               </Route>
-            </MapContext.Provider> 
-            
+            </MapContext.Provider>
           </Switch>
         </div>
       </Router>
